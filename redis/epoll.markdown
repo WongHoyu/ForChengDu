@@ -10,7 +10,7 @@
     ```int select (int n, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);```
     
     2.工作原理
-    ![avatar](https://segmentfault.com/img/bVm1c5)
+    ![avatar](../img/1903235121-55c466eb17665_fix732.png)
     
     3.select 监听描述符分为readfds、writefds、exceptfds,当有描述符就绪或超时，就会返回。
     4.select需要遍历这三个描述符集合，找到就绪fd，当fd太多时性能就会下降。
@@ -51,7 +51,7 @@
         3.epoll_wait函数会阻塞，直到一个fd触发了事件，或者被信号处理函数打断，获取超时。返回值是需要处理的fd的数量。
         
     6.执行流程
-    ![avatar](https://img-blog.csdnimg.cn/20200524192531762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzQ4MDcxMTQ2,size_16,color_FFFFFF,t_70)
+    ![avatar](../img/20200524192531762.png)
     
     7.优点
         1.epoll创建的红黑树保存所有fd，没有大小限制，且增删查的复杂度O(logN)    
