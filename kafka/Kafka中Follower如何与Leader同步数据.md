@@ -46,5 +46,9 @@
                 5. 当 （上一次 ISR 集合发生变更距离现在已经超过 5s || 上一次写入 ZK 距离现在已经超过 60s ） 时， isr-change-propagation任务才会将变更写入到目标节点（应该是 /isr_change_notification/isr_change_0000000000）。 
             - ISR 的扩充
                 1. 当 OSR 中的 follower副本的 LEO >= leader副本的 HW，才有资格进入 ISR。
+                2. **当 replica 拉取 leader 数据时，且 LEO 增长时，都会触发 maybeExpandIsr 函数**
+                3. 当 没有其他请求更改 ISR && replica 不在 ISR 集合中 && 持有读锁 && follower 的 LEO >= leader 的 HW 时，才会进行扩张 ISR 集合。
+                4. 如果需要扩张 ISR 集合时，需要持有写锁。再次重复 3。然后通过向控制器发送AlterIsr请求(2.7)或直接更新ZK(2.7之前)来处理ISR的更新。
+                5. 当调用 Partition.updateFollowerFetchState 函数时, 都会调用 maybeExpandIsr 函数，然后调用 maybeIncrementLeaderHW 尝试更新 Leader 的 HW。
             - 当ISR集合发生增减时，或者ISR集合中任一副本LEO发生变化时，都会影响整个分区的HW。
             - ![avatar](../img/3371623341308_.pic_hd.jpg)
