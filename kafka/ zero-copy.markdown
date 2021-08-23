@@ -8,7 +8,7 @@
 - 传统方式
     ![avatar](../img/3211622308476_.pic_hd.jpg)
     
-- 使用MMA后
+- 使用mmap后
     ![avatar](../img/3221622308516_.pic_hd.jpg)
     
 - 使用sendfile
