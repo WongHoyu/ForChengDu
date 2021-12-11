@@ -2,9 +2,18 @@
 - 相关url
   1. https://segmentfault.com/a/1190000003063859
   Linux IO模式及 select、poll、epoll详解
+  
   2. https://blog.csdn.net/m0_48071146/article/details/106319454
   读懂才会用 ： 瞅瞅Redis的epoll模型
   
+  3. 比较有意思:
+     1. **https://blog.csdn.net/lsgqjh/article/details/65629609**
+     2. **https://os.51cto.com/art/202103/649405.htm**
+     3. **https://blog.csdn.net/qq_35976351/article/details/85228002**
+  
+- fd 文件句柄
+  文件句柄本质上是一个索引内核资源的一个文件下表
+
 - select 模型
     1. select() 函数
     ```int select (int n, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);```
