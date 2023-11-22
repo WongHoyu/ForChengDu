@@ -10,7 +10,7 @@ func longestCommonPrefix(strs []string) string {
 	}
 
 	prefix := strs[0]
-	for i := 0; i < len(strs); i++ {
+	for i := 1; i < len(strs); i++ {
 		for {
 			if strings.HasPrefix(strs[i], prefix) {
 				break

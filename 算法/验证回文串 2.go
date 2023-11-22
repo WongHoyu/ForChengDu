@@ -5,25 +5,11 @@ func validPalindrome(s string) bool {
 		return true
 	}
 
-	count := 1
 	f := 0
 	b := len(s) - 1
 	for f < b {
 		if s[f] != s[b] {
-			if count == 1 {
-				if s[f+1] == s[b] {
-					f++
-				} else if s[f] == s[b-1] {
-					b--
-				} else {
-					return false
-				}
-
-				count--
-				continue
-			}
-
-			return false
+			return valid(s[f:b]) || valid(s[f+1:b+1])
 		}
 
 		f++
@@ -31,4 +17,14 @@ func validPalindrome(s string) bool {
 	}
 
 	return true
+}
+
+func valid(s string) bool {
+	if len(s) == 1 || len(s) == 0 {
+		return true
+	}
+	if s[0] != s[len(s)-1] {
+		return false
+	}
+	return valid(s[1 : len(s)-1])
 }
