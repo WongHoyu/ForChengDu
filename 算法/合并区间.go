@@ -14,7 +14,7 @@ func merge(intervals [][]int) [][]int {
 			res = append(res, prev)
 			prev = intervals[i]
 		} else {
-			prev[1] = max(prev[1], intervals[i][1])
+			prev[1] = getMax(prev[1], intervals[i][1])
 		}
 	}
 

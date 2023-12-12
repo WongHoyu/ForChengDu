@@ -11,7 +11,7 @@ func lengthOfLongestSubstring(s string) int {
 			cache[int32(s[left])] -= 1
 			left++
 		}
-		res = max(res, right-left+1)
+		res = getMax(res, right-left+1)
 	}
 
 	return res

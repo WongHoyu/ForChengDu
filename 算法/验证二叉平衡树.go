@@ -25,19 +25,3 @@ func getHigh(node *TreeNode) int {
 
 	return getMax(lHigh, rHigh) + 1
 }
-
-func getMax(a, b int) int {
-	if a >= b {
-		return a
-	}
-
-	return b
-}
-
-func getAbs(a int) int {
-	if a < 0 {
-		return -a
-	}
-
-	return a
-}

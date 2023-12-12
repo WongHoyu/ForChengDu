@@ -8,8 +8,8 @@ func trap(height []int) int {
 
 	result := 0
 	for left < right {
-		leftMax = max(leftMax, height[left])
-		rightMax = max(rightMax, height[right])
+		leftMax = getMax(leftMax, height[left])
+		rightMax = getMax(rightMax, height[right])
 
 		if rightMax > leftMax {
 			result += leftMax - height[left]
