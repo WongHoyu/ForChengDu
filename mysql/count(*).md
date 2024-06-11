@@ -1,5 +1,5 @@
-#count(*) & count(1) & count(主键) & count(非主键列)
-##参考链接
+# count(*) & count(1) & count(主键) & count(非主键列)
+## 参考链接
 https://mp.weixin.qq.com/s?__biz=MzIxNTQ3NDMzMw==&mid=2247486071&idx=1&sn=7160fc85721f27177d7aeabfe92aa991&chksm=97968385a0e10a93432d02b9a9535176ea437d4689cab54412fb6ec0a8c5d1a0c9fdd3d47496&scene=21#wechat_redirect
 
 1. count(*)/count(1)/count(主键) server层会根据合适的索引来统计表的行数。

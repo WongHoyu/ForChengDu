@@ -1,5 +1,6 @@
 package 算法
 
+// s = "babad"
 func longestPalindrome(s string) string {
 	result := ""
 

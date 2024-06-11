@@ -1,40 +1,37 @@
 package 算法
 
+import (
+	"math"
+	"strings"
+)
+
 func myAtoi(str string) int {
 	if str == "" {
 		return 0
 	}
 
-	var res int
-	var minus bool
-	for _, v := range str {
-		if (v-'0' >= 10 || v-'0' < 0) && v != '-' {
-			if res != 0 {
-				break
+	str = strings.TrimSpace(str)
+
+	sign := 1
+	res := 0
+	for i, s := range str {
+		if s > '0' && s <= '9' {
+			res = res*10 + int(s-'0')
+		} else if s == '-' && i == 0 {
+			sign = -1
+		} else if s == '+' && i == 0 {
+			sign = 1
+		} else {
+			break
+		}
+
+		if res > math.MaxInt32 {
+			if sign == -1 {
+				return math.MinInt32
 			}
-			continue
+			return math.MaxInt32
 		}
-		if v == '-' {
-			if minus {
-				break
-			}
-			minus = true
-			continue
-		}
-
-		res = res*10 + int(v-'0')
 	}
 
-	if !minus {
-		if res > (2<<30 - 1) {
-			return 2<<30 - 1
-		}
-		return res
-	}
-
-	if res > 2<<30 {
-		return -1 * (2 << 30)
-	}
-
-	return res * -1
+	return sign * res
 }

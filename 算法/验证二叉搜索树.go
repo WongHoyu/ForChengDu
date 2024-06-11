@@ -23,7 +23,7 @@ func Dfs(node *TreeNode, min int, max int) bool {
 		return true
 	}
 
-	if min >= node.Val || max <= node.Val {
+	if node.Val <= min || node.Val >= max {
 		return false
 	}
 

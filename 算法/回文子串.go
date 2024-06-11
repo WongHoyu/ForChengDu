@@ -1,7 +1,8 @@
 package 算法
 
+// s = "abc"
 func countSubstrings(s string) int {
-	if len(s) == 0 || len(s) == 1 {
+	if len(s) <= 1 {
 		return len(s)
 	}
 

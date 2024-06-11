@@ -1,4 +1,4 @@
-#epoll, poll, select
+# epoll, poll, select
 - 相关url
   1. https://segmentfault.com/a/1190000003063859
   Linux IO模式及 select、poll、epoll详解
@@ -12,7 +12,7 @@
      3. **https://blog.csdn.net/qq_35976351/article/details/85228002**
   
 - fd 文件句柄
-  文件句柄本质上是一个索引内核资源的一个文件下表
+  文件句柄本质上是一个索引内核资源的一个文件下标
 
 - select 模型
     1. select() 函数

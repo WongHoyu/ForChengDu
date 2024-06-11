@@ -4,30 +4,27 @@ import "strings"
 
 func isPalindrome(s string) bool {
 	if s == "" {
-		return true
+		return false
 	}
 
 	s = strings.ToLower(s)
 
-	// aba
-	// aa
-	f := 0
-	b := len(s) - 1
-	for f < b {
-		for f < b && s[f]-'0' > 9 && s[f]-'a' > 25 {
-			f++
+	l := 0
+	r := len(s) - 1
+	for l < r {
+		for l < r && s[l]-'0' > 9 && s[l]-'a' > 25 {
+			l++
 		}
-		for f < b && s[b]-'0' > 9 && s[b]-'a' > 25 {
-			b--
+		for l < r && s[r]-'0' > 9 && s[r]-'a' > 25 {
+			r--
 		}
 
-		if s[f] != s[b] {
+		if s[l] != s[r] {
 			return false
 		}
 
-		f++
-		b--
+		l++
+		r--
 	}
-
 	return true
 }

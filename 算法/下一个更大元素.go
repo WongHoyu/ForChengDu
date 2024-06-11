@@ -1,7 +1,8 @@
 package 算法
 
+// nums1 = [4,1,2], nums2 = [1,3,4,2].
 func nextGreaterElement(nums1 []int, nums2 []int) []int {
-	mp := make(map[int]int)
+	mp := make(map[int]int, len(nums2))
 	stack := make([]int, 0, len(nums2))
 
 	for i := len(nums2) - 1; i >= 0; i-- {
